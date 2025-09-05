@@ -39,11 +39,9 @@ ENV HOSTNAME="0.0.0.0"
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
-# Create public directory if it doesn't exist
+# Copy public files (create empty public dir first to avoid errors)
 RUN mkdir -p ./public
-
-# Copy public files if they exist (optional copy)
-COPY --from=builder --chown=nextjs:nodejs /app/public* ./public/ || true
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 # Create .next directory with correct permissions
 RUN mkdir .next && chown nextjs:nodejs .next
