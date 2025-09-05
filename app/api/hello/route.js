@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 export async function GET() {
   try {
     return NextResponse.json({
-      message: "Hello from Coolify backend 🚀",
+      message: "Hello from Coolify backend NEW 🚀",
       timestamp: new Date().toISOString(),
       env: process.env.NODE_ENV || 'development',
       deployment: 'single-app'
