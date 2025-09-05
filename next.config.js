@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  output: 'standalone'
+  output: 'standalone',
+  // Disable telemetry
+  telemetry: false,
+  // Optimize for production
+  compress: true,
+  // Enable SWC minification
+  swcMinify: true
 }
 
 module.exports = nextConfig
